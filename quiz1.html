@@ -67,11 +67,11 @@
 <body>
     <div id='container'>
 		<div id='title'>
-			<h1>ADDITION</h1>
+			<h1>MULTIPLICATION</h1>
 		</div>
 		<br/>
 		<div id='quiz'></div>
-		<div class='button' id='next' onclick="onClickNext()" onmouseover="mouseIn(this)" onmouseout="mouseOut(this)"><a href='#'>Next</a></div>
+		<div class='button' id='quiznext' onclick="onClickNext()" onmouseover="mouseIn(this)" onmouseout="mouseOut(this)"><a href='#'>Next</a></div>
 		<div class='button' id='start'> <a href='#'>Start Over</a></div>
 	</div>
 
@@ -132,6 +132,7 @@ function displayNext() {
     if(questionCounter < questions.length) {
         createQuestionElement(questionCounter);
     } else {
+        document.getElementById('quiznext').hidden=true;
         showResult();
     }
 }
@@ -143,7 +144,7 @@ function createQuestionElement(index) {
     quiz.innerHTML = s;
 
     quiz.innerHTML += createRadios(index);
-  }
+}
 
 // Creates a list of the answer choices as radio inputs
 function createRadios(index) {
@@ -169,6 +170,7 @@ function showResult() {
         }
     }
     quiz.innerHTML = "You got " + correct + " out of " + total + " questions correct!";
+    sessionStorage.setItem('score', correct);
 }
 
 function mouseOut(x) {
