@@ -18,6 +18,7 @@ function init() {
     activities[2] = "http://ekalavya.it.iitb.ac.in/summerinternship2017/activity_src/kBPlGvSIwN_gWulybVy6oQ/F49Nlw0i4lNn82dGASrsgA/Experiment/index.jsp";
 
     breakPoints.push(1);
+    breakPoints.push(6);
 }
 
 function loaded() {
