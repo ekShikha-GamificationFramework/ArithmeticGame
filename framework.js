@@ -8,6 +8,9 @@ var source;
 var position = {
     parent : 0,
     current : 0,
+    destination : 0,
+    currentPath : undefined,
+    currentIndex : 0
 };
 
 function init(){
@@ -65,6 +68,17 @@ function connectActivities(src, dest, path){
 }
 
 function onClickNext(){
-    var nextFrame;
-    for
+    if(!typeof(position.currentPath)){
+        position.destination = Object.keys(map[position.current])[0];
+        position.currentPath = map[position.current][position.destination];
+    }
+    else{
+        source.src = position.currentPath[position.currentIndex++];
+        if(position.currentIndex==position.currentPath.length){
+            position.parent = position.current;
+            position.current = position.destination;
+            position.currentPath = undefined;
+            position.currentIndex = 0;
+        }
+    }
 }
