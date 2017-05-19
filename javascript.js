@@ -26,18 +26,18 @@ function loaded() {
 }
 
 function onClickNext() {
-	var theScore=parseInt(sessionStorage.getItem('score'));
-	if(theScore!=-1){
+    var theScore=parseInt(sessionStorage.getItem('score'));
+    if(theScore!=-1){
     	breakPoints.push(theScore%3+1);
     	sessionStorage.setItem('score', -1);
     }
     if(!showingActivity && breakPoints.indexOf(imageCounter) != -1) {
         showingActivity = true;
-        source.src = activities[activityCounter];
+        source.contentWindow.location.replace(activities[activityCounter]);
         activityCounter++;
     } else {
         showingActivity = false;
         imageCounter++;
-        source.src = images[imageCounter];
+        source.contentWindow.location.replace(images[imageCounter]);
     }
 }
