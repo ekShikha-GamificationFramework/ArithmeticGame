@@ -18,7 +18,7 @@ function init() {
     activities[2] = "http://ekalavya.it.iitb.ac.in/summerinternship2017/activity_src/kBPlGvSIwN_gWulybVy6oQ/F49Nlw0i4lNn82dGASrsgA/Experiment/index.jsp";
 
     breakPoints.push(1);
-    breakPoints.push(6);
+    breakPoints.push(5);
 }
 
 function loaded() {
@@ -28,7 +28,7 @@ function loaded() {
 function onClickNext() {
 	var theScore=parseInt(sessionStorage.getItem('score'));
 	if(theScore!=-1){
-    	breakPoints.push(theScore%3+2);
+    	breakPoints.push(theScore%3+1);
     	sessionStorage.setItem('score', -1);
     }
     if(!showingActivity && breakPoints.indexOf(imageCounter) != -1) {
