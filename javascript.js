@@ -29,7 +29,7 @@ function onClickNext() {
 	if(theScore!=-1){
     	breakPoints.push(theScore%3+1);
     	sessionStorage.setItem('score', -1);
-	breakPoints.push(theScore%3+ 1 + Math.ceil(Math.random()*100).toFixed()%3);
+	breakPoints.push(theScore%3+ 2);
     }
     if(!showingActivity && breakPoints.indexOf(imageCounter) != -1) {
         showingActivity = true;
